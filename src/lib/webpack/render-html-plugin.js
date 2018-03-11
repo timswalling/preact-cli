@@ -29,6 +29,7 @@ export default function (config) {
 			title: title || config.title || config.manifest.name || config.manifest.short_name || (config.pkg.name || '').replace(/^@[a-z]\//, '') || 'Preact App',
 			excludeAssets: [/(bundle|polyfills)(\..*)?\.js$/],
 			config,
+			url,
 			ssr(params) {
 				return config.prerender ? prerender({ cwd, dest, src }, { ...params, url }) : '';
 			}
